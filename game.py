@@ -1,6 +1,6 @@
 import random
 import player
-import gun
+from gun import Gun
 import items
 
 
@@ -18,7 +18,6 @@ class Game:
 
         while self.player_1.is_alive() and self.player_2.is_alive():
             print(f"\n======  Round {self.round}  ======")
-            gun = gun.Gun()
             real_bullet = random.randint(1,3)
             self.gun.load(real_bullet)
             self.play_round()
