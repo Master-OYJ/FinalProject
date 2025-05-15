@@ -7,11 +7,11 @@ import items
 class Game:
     def __init__(self, player_1, player_2):
         self.round = 1
-        self.player_1 = player_1
-        self.player_2 = player_2
+        self.player_1 = player.Player(player_1)
+        self.player_2 = player.Player(player_2)
         self.players = [self.player_1, self.player_2]
         self.current_turn = 0  # 0: player1's turn, 1: player2's turn
-        self.gun = gun.Gun()
+        self.gun = Gun()
 
     def start(self):
         print("Now game start!")
@@ -31,20 +31,28 @@ class Game:
     def play_round(self):
         while not self.gun.is_empty() and self.player_1.is_alive() and self.player_2.is_alive():
             current_player = self.players[self.current_turn]
-            target = self.players[1 - self.current_turn]
+            # target = self.players[1 - self.current_turn]
 
             print(f"\n👉 It's {current_player.name}'s turn to shoot.")
-            input("Press Enter to fire...")
-            hit = self.gun.fire()
+            target = int(input("Press 1 to shoot player 1, or enter 2 to shoot player 2!\n"))
+            if target < 1 or target > 2:
+                print("Invaild number, enter again")
+                continue
+            target = target - 1
+            hit = self.gun.fire(target)
 
             if hit:
                 print("💥  Bang! It's a real bullet!")
                 target.hp -= 1
                 print(f"😵 {target.name} got hit! Remaining HP: {target.hp}")
+                self.current_turn = 1 - self.current_turn
+            elif hit == False and target == current_player:
+                print("💨 Click! It was a blank... You have one more turn.")        
             else:
                 print("💨 Click! It was a blank... Safe for now.")
+                self.current_turn = 1 - self.current_turn
 
-            self.current_turn = 1 - self.current_turn  # 轮流切换
+            
 
     def grant_items(self):
         print("\n End of round! Distributing random items...")

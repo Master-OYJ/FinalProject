@@ -51,3 +51,4 @@ def get_random_items():
     items = []
     for i in range(3):
         items.append(random.choice(item_classes))
+    return items
