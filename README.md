@@ -1,18 +1,96 @@
-# 🎂 蛋糕轮盘赌 Cake Roulette
+Here's a clean and professional `README.md` in **English** for your **Russian Roulette Cake Party Game** 🎂🔫:
 
-一个基于文字界面的搞笑决斗游戏：你和朋友争夺 Party 上的最后一块蛋糕，通过“轮盘赌”玩具枪分胜负！
+---
 
-## 功能特色
-- 回合制对战系统
-- 面向对象模块化结构
-- 随机子弹系统 & 道具系统
-- 敌人AI逻辑
+# 🎉 Russian Roulette Cake Party Game
 
-## 项目结构
-- `main.py`: 入口
-- `game.py`: 游戏主流程
-- `player.py`: 玩家定义
-- `gun.py`: 枪械逻辑
-- `item.py`: 道具系统
-- `ai.py`: 敌人行为
-- `save.py`: 存档/读取
+A text-based party game in Python where two players take turns in a dramatic and silly game of cake-themed Russian Roulette. Use strategy, luck, and hilarious taunts to outsmart your opponent!
+
+## 🕹️ Game Concept
+
+Players take turns firing a gun with randomly loaded bullets. Each round, players can choose to:
+
+* 🔫 Shoot at themselves or the opponent.
+* 🍬 Use fun items like **Healing Candy**, **Reverse Card**, and more.
+* 🎯 Survive to be the last one standing!
+
+The game features:
+
+* Health system (3 hearts each round).
+* Action items with strategic effects.
+* Random taunts when players make mistakes.
+* X-ray bullet reveal mechanic.
+* Fun, colorful terminal output using `colorama`.
+
+---
+
+## 📦 Requirements
+
+* Python 3.6+
+* `colorama` library
+
+Install `colorama`:
+
+```bash
+pip install colorama
+```
+
+---
+
+## 🚀 How to Play
+
+1. Run the game from `main.py`:
+
+   ```bash
+   python main.py
+   ```
+
+2. Each player will take turns. On your turn:
+
+   * Type `1` to shoot Player 1.
+   * Type `2` to shoot Player 2.
+   * Type `4`, `5`, or `6` to use an item (if available).
+   * Invalid inputs will trigger taunts from your opponent.
+
+3. The game continues until one player's HP drops to 0.
+
+---
+
+## 🎁 Items List
+
+| Item Name     | Effect Description                               |
+| ------------- | ------------------------------------------------ |
+| Healing Candy | Restores 1 HP                                    |
+| Reverse Card  | Reverses the turn order                          |
+| XRayScope     | Reveals whether the next bullet is real or blank |
+| Double Shot   | Next hit deals 2 damage instead of 1             |
+
+---
+
+## 🧠 Tips
+
+* Save your items for a smart comeback!
+* Use the **XRayScope** to avoid self-shooting risks.
+* Taunts are just for fun—don’t take them seriously. Or do. 😈
+
+---
+
+## 👨‍💻 Project Structure
+
+```bash
+├── main.py         # Game launcher
+├── game.py         # Core game logic
+├── player.py       # Player class with attributes and item handling
+├── gun.py          # Bullet loading and firing logic
+├── items.py        # All in-game items and their effects
+└── README.md       # Game overview (this file)
+```
+
+---
+
+## 📸 Screenshot (Optional)
+
+None
+
+---
+
