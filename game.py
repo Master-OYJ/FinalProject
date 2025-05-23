@@ -4,7 +4,7 @@ from gun import Gun
 import items
 from colorama import Fore, Style, init
 
-init(autoreset=True)  # 自动重置颜色，避免污染后续输出
+init(autoreset=True)  
 
 
 class Game:

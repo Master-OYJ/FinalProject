@@ -83,7 +83,7 @@ pip install colorama
 
 ---
 
-## 📸 Screenshot (Optional)
+## 📸 Screenshot 
 
 ![1747995961155](images/README/1747995961155.png)
 
