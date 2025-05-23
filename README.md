@@ -1,7 +1,3 @@
-Here's a clean and professional `README.md` in **English** for your **Russian Roulette Cake Party Game** 🎂🔫:
-
----
-
 # 🎉 Russian Roulette Cake Party Game
 
 A text-based party game in Python where two players take turns in a dramatic and silly game of cake-themed Russian Roulette. Use strategy, luck, and hilarious taunts to outsmart your opponent!
