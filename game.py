@@ -10,6 +10,7 @@ init(autoreset=True)  # 自动重置颜色，避免污染后续输出
 class Game:
     def __init__(self, player_1, player_2):
         self.round = 1
+        self.max_round = None
         self.player_1 = player.Player(player_1)
         self.player_2 = player.Player(player_2)
         self.players = [self.player_1, self.player_2]
@@ -17,11 +18,25 @@ class Game:
         self.gun = Gun()
 
     def start(self):
-        print("🎉 The party begins! The last piece of cake is on the line!\n")
+        print(Fore.MAGENTA + "\n🎉 Welcome to the Russian Roulette Cake Party! 🎂🔫" + Style.RESET_ALL)
 
-        while self.player_1.is_alive() and self.player_2.is_alive():
-            print(f"\n======  Round {self.round}  ======")
-            real_bullet = random.randint(2, 3)
+        # Ask how many rounds to play
+        while True:
+            user_input = input(Fore.YELLOW + "🔢 Enter the number of rounds you want to play: " + Style.RESET_ALL)
+            try:
+                self.max_rounds = int(user_input)
+                if self.max_rounds < 1:
+                    print(Fore.RED + "❌ Invalid number! Must be at least 1." + Style.RESET_ALL)
+                    continue
+                break
+            except ValueError:
+                print(Fore.RED + "❌ That's not a valid number! Please enter a positive integer." + Style.RESET_ALL)
+
+        print(Fore.GREEN + "\nNow the game begins!" + Style.RESET_ALL)
+
+        while self.player_1.is_alive() and self.player_2.is_alive() and self.round <= self.max_rounds:
+            print(Fore.CYAN + f"\n======  🎲 Round {self.round}  ======" + Style.RESET_ALL)
+            real_bullet = random.randint(1, 3)
             self.gun.load(real_bullet)
             self.play_round()
             self.round += 1
@@ -93,7 +108,7 @@ class Game:
                 action = int(user_input)
             except ValueError:
                 print(Fore.RED + "\n❌ Invalid input! That’s not even a number.")
-                print(Fore.LIGHTMAGENTA_EX + "🧠💬", f"{opponent.name} taunts: \"{random.choice(taunts['not_a_number'])}\"")
+                print(Fore.LIGHTMAGENTA_EX + "💬", f"{opponent.name} taunts: \"{random.choice(taunts['not_a_number'])}\"")
                 continue
 
             if action in [1, 2]:
@@ -107,7 +122,7 @@ class Game:
                     print(Fore.RED + "\n💥 BANG! It was a REAL BULLET!")
                     target.hp -= damage
                     print(Fore.RED + f"😵 {target.name} took {damage} damage! HP left: {target.hp}")
-                    print(Fore.LIGHTMAGENTA_EX + "🧠💬", f"{opponent.name} taunts: \"{random.choice(taunts['normal'])}\"")
+                    print(Fore.LIGHTMAGENTA_EX + "💬", f"{opponent.name} taunts: \"{random.choice(taunts['normal'])}\"")
                     self.current_turn = 1 - self.current_turn
                 elif not hit and target == current_player:
                     print(Fore.BLUE + "\n💨 CLICK! Blank shot at yourself! Extra turn granted.")
@@ -123,10 +138,10 @@ class Game:
                     item.apply(current_player, opponent, self.gun)
                 else:
                     print(Fore.RED + "\n❌ Invalid item slot! No item there.")
-                    print(Fore.LIGHTMAGENTA_EX + "🧠💬", f"{opponent.name} taunts: \"{random.choice(taunts['invalid_item_slot'])}\"")
+                    print(Fore.LIGHTMAGENTA_EX + "💬", f"{opponent.name} taunts: \"{random.choice(taunts['invalid_item_slot'])}\"")
             else:
                 print(Fore.RED + "\n❌ Invalid number! Choose 1, 2 or 4~6.")
-                print(Fore.LIGHTMAGENTA_EX + "🧠💬", f"{opponent.name} taunts: \"{random.choice(taunts['invalid_number'])}\"")
+                print(Fore.LIGHTMAGENTA_EX + "💬", f"{opponent.name} taunts: \"{random.choice(taunts['invalid_number'])}\"")
 
 
 

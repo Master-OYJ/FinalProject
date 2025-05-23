@@ -44,19 +44,18 @@ pip install colorama
    ```bash
    python main.py
    ```
-
 2. Each player will take turns. On your turn:
 
    * Type `1` to shoot Player 1.
    * Type `2` to shoot Player 2.
    * Type `4`, `5`, or `6` to use an item (if available).
    * Invalid inputs will trigger taunts from your opponent.
-
 3. The game continues until one player's HP drops to 0.
 
 ---
 
 ## 🎁 Items List
+
 
 | Item Name     | Effect Description                               |
 | ------------- | ------------------------------------------------ |
@@ -90,7 +89,6 @@ pip install colorama
 
 ## 📸 Screenshot (Optional)
 
-None
+![1747995961155](images/README/1747995961155.png)
 
 ---
-
